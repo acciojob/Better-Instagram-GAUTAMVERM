@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
         draggedItem = this;
         this.classList.add('dragging');
         e.dataTransfer.effectAllowed = 'move';
-        // Use setData to make drop work in Firefox
         e.dataTransfer.setData('text/html', this.innerHTML);
     }
     
@@ -38,20 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         this.classList.remove('drag-over');
         
-        // Don't do anything if we drop on the same item we're dragging
         if (draggedItem !== this) {
-            // Swap background images
-            const draggedBg = draggedItem.style.backgroundImage;
-            const targetBg = this.style.backgroundImage;
-            
-            draggedItem.style.backgroundImage = targetBg || getComputedStyle(this).backgroundImage;
-            this.style.backgroundImage = draggedBg || getComputedStyle(draggedItem).backgroundImage;
+            // Swap the inner HTML (images) of the dragged and dropped elements
+            const draggedContent = draggedItem.innerHTML;
+            draggedItem.innerHTML = this.innerHTML;
+            this.innerHTML = draggedContent;
         }
     }
     
     function dragEnd() {
         this.classList.remove('dragging');
-        // Remove drag-over class from all items in case any were left in that state
         gridItems.forEach(item => {
             item.classList.remove('drag-over');
         });
