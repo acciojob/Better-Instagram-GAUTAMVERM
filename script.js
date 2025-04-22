@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Create mapping between dragX and divX identifiers
+    const elementsMap = {};
     const gridItems = document.querySelectorAll('.grid-item');
     
     gridItems.forEach(item => {
+        // Map both ID types for easy lookup
+        elementsMap[item.id] = item;
+        elementsMap[item.dataset.id] = item;
+        
         item.addEventListener('dragstart', dragStart);
         item.addEventListener('dragover', dragOver);
         item.addEventListener('dragenter', dragEnter);
@@ -51,4 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
             item.classList.remove('drag-over');
         });
     }
+
+    // Make elements accessible via both ID types in tests
+    window.testElements = elementsMap;
 });
