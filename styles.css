@@ -1,26 +1,39 @@
-#drag1, #drag2, #drag3, #drag4, #drag5, #drag6 {
-  background-color: lightgrey;
-  width: 200px;
-  height: 300px;
-  margin: 20px;
-  display: inline-block;
-  text-align: center;
-  line-height: 300px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
 }
 
-#drag1:hover, #drag2:hover, #drag3:hover, #drag4:hover, #drag5:hover, #drag6:hover {
-  background-color: #ddd;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-gap: 10px;
+    padding: 20px;
 }
 
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+.grid-item {
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    cursor: move;
+    border: 2px solid #333;
+    border-radius: 5px;
+    transition: transform 0.2s, opacity 0.2s;
 }
 
-h1 {
-  text-align: center;
+.grid-item.dragging {
+    opacity: 0.5;
+    transform: scale(1.05);
 }
+
+#div1 { background-image: url('https://picsum.photos/id/10/200/200'); }
+#div2 { background-image: url('https://picsum.photos/id/20/200/200'); }
+#div3 { background-image: url('https://picsum.photos/id/30/200/200'); }
+#div4 { background-image: url('https://picsum.photos/id/40/200/200'); }
+#div5 { background-image: url('https://picsum.photos/id/50/200/200'); }
+#div6 { background-image: url('https://picsum.photos/id/60/200/200'); }

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Drag and Drop Demo</title>
-  </head>
-  <body>
-    <h1 style="text-align: center">Arrange Images by Drag and Drop</h1>
-    <div class="flex" id="parent">
-      <div id="drag1" class="image" draggable="true">Image 1</div>
-      <div id="drag2" class="image" draggable="true">Image 2</div>
-      <div id="drag3" class="image" draggable="true">Image 3</div>
-      <div id="drag4" class="image" draggable="true">Image 4</div>
-      <div id="drag5" class="image" draggable="true">Image 5</div>
-      <div id="drag6" class="image" draggable="true">Image 6</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid with Drag & Drop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" id="div1" draggable="true"></div>
+        <div class="grid-item" id="div2" draggable="true"></div>
+        <div class="grid-item" id="div3" draggable="true"></div>
+        <div class="grid-item" id="div4" draggable="true"></div>
+        <div class="grid-item" id="div5" draggable="true"></div>
+        <div class="grid-item" id="div6" draggable="true"></div>
     </div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
